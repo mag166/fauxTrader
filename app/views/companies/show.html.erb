@@ -1,3 +1,50 @@
-<h1>We are showing The company</h1>
+<div class="container">
+    <h1 class=" text-center"><strong>Company Information</strong></h1>
 
-<p><%=@company.symbol%></p>
+    <dl class="row">
+        <dt class="col-2">Symbol:</dt><br>
+        <dd class="col-10"><%=@company.symbol%></dd>
+
+        <dt class="col-2">Name:</dt>
+        <dd class="col-10"><%=@companyInfo.company_name%></dd>
+
+        <dt class="col-2">Exchange:</dt>
+        <dd class="col-10"><%=@companyInfo.exchange%></dd>
+
+        <dt class="col-2">Industry:</dt>
+        <dd class="col-10"><%=@companyInfo.industry%></dd>
+
+        <dt class="col-2">Description:</dt>
+        <dd class="col-10"><%=@companyInfo.description%></dd>
+
+        <dt class="col-2">CEO:</dt>
+        <dd class="col-10"><%=@companyInfo.ceo%></dd>
+
+        <dt class="col-2">Sector:</dt>
+        <dd class="col-10"><%=@companyInfo.sector%></dd>
+
+        <dt class="col-2">Website:</dt>
+        <dd class="col-10"><a href="<%=@companyInfo.website%>"><%=@companyInfo.website%></a></dd>
+    </dl>
+
+    <div class="row topspace text-center">
+        <div class="col">
+            <div class="card mx-auto leftCard" style="width: 18rem;">
+                <div class="card-header"><strong>Number of Shares:</strong></div>
+                <p class="card-text cashText"><%=@shares%></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mx-auto leftCard" style="width: 18rem;">
+                <div class="card-header"><strong>Avg. Price Paid:</strong></div>
+                <p class="card-text cashText"><%="$#{@avg}"%></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mx-auto leftCard" style="width: 18rem;">
+                <div class="card-header"><strong>Current Price:</strong></div>
+                <p class="card-text cashText"><%="$#{@price}"%></p>
+            </div>
+        </div>
+    </div>
+</div>
