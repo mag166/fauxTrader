@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   get 'companies/index'
   get 'users/index'
 
-  root 'users#splash'
+  post 'users/index' => "companies#create"
+
+  root 'users#index'
+
+  resources :companies
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

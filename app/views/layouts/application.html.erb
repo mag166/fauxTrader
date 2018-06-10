@@ -18,6 +18,9 @@
     <a class="navbar-brand" href="#">
       <%=image_tag ("logo.png"), class:"d-inline-block align-top"%>
     </a>
+    <% if controller_name == "users" && action_name = "index" %>
+      <span class="navbar-brand header">My Portfolio</span>
+    <%end%>
     <% if signed_in? %>
       <%= button_to 'Sign out', sign_out_path, method: :delete %>
     <% else %>

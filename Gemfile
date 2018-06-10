@@ -5,8 +5,8 @@ ruby '2.4.1'
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'bootstrap-sass', '~> 3.3.7'
-gem 'bootstrap_form',
-git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
+gem "bootstrap_form",
+    git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
     branch: "master"
 gem 'jquery-rails'
 

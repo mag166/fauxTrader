@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
-  def index
+  before_action :require_login
 
+  def index
     @value = stockPortfolioValue + current_user.cash
+    @initialDeposit = current_user.initial_deposit
+    @change = (((@value/@initialDeposit)*100)-100).round(2)
+    @cash = current_user.cash
 
     @names = []
     @prices = []
