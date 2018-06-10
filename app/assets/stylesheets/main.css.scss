@@ -42,6 +42,26 @@ h1{
     margin-top: 80px;
 }
 
-.yo{
-    opacity: 0;
+::placeholder { 
+    text-transform: none;
 }
+
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+  }
+
+  .footerSpace{
+      margin-bottom: 120px;
+  }

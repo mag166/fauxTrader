@@ -1,6 +1,7 @@
 
 
 <div class="container text-center">
+<br><h1>My Portfolio</h1>
     <div class="row topspace">
         <div class="col">
             <div class="card mx-auto leftCard" style="width: 18rem;">
@@ -67,21 +68,13 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row footerSpace">
         <div class="col ">
-<!--            <form class="form-inline justify-content-center">
-                <label for="companySearch">Search by Company Symbol: </label>
-                    <input type="text" class="form-control" id="companySearch" placeholder="ex. AAPL">
-                </div>
-                <button type="submit" class="btn btn-primary mb-2">Submit</button>
-
-            </form>
--->
             <%= form_with(model:@company, local:true,class:"justify-content-center form-inline") do |f| %>
                 <div class="form-group mx-sm-3 mb-2">
-                    <%= f.text_field :symbol, label: "Search by Company Symbol:",placeholder:"ex. AAPL",class:"form-control"  %>
+                    <%= f.text_field :symbol, label: "Search by Company Symbol:",placeholder:"ex. AAPL",class:"form-control",style:"text-transform:uppercase" %>
                 </div>
-                <%= f.submit "Submit",class:"btn btn-primary mb-2"%>
+                <%= f.submit "Submit",class:"btn btn-primary mb-2 "%>
             <% end %>
         </div>
     </div>
