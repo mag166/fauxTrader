@@ -1,8 +1,8 @@
 
 
-<div class="container text-center">
-<br><h1>My Portfolio</h1>
-    <div class="row topspace">
+<div class="container">
+<br><h1 class="text-center">My Portfolio</h1>
+    <div class="row topspace text-center">
         <div class="col">
             <div class="card mx-auto leftCard" style="width: 18rem;">
                 <div class="card-header"><strong>Initial Deposit:</strong></div>
@@ -13,7 +13,7 @@
         <div class="col ">
             <div class="card mx-auto rightCard" style="width: 18rem;">
                 <div class="card-header"><strong>Current Portfolio Value:</strong></div>
-                <p class="card-text cashText" ><%="$#{@value}"%></p>
+                <p class="card-text cashText" ><%="$#{@value.round(2)}"%></p>
             </div>
         </div>
 
@@ -42,24 +42,24 @@
             </tr>
         </thead>
         <tbody>
-            <%@names.size.times do |index|%>
+            <%@quotes.size.times do |index|%>
                 <tr>
-                <th scope="row"><%=@symbols[index]%></th>
-                <td><%=@names[index]%></td>
+                <th scope="row"><%=link_to "#{@quotes[index].symbol}", "/companies/#{@companies[index].id}", class:"link"%></th>
+                <td><%=@quotes[index].company_name%></td>
                 <td><%=@shares[index]%></td>
                 <%if @avg[index] != "-"%>
                     <td><%="$#{@avg[index]}"%></td>
                 <%else%>
                     <td><%="#{@avg[index]}"%></td>
                 <%end%>
-                <td><%="$#{@prices[index]}"%></td>
+                <td><%="$#{@quotes[index].latest_price}"%></td>
                 </tr>
             <%end%>
         </tbody>
         </table>
     </div><br><br><br>
-    <h2>Find Companies</h2><br><br>
-    <div class="row">
+    <h2 class="text-center">Find Companies</h2><br><br>
+    <div class="row text-center">
         <div class="col ">
             <div class="card mx-auto rightCard" style="width: 18rem;">
                 <div class="card-header"><strong>Available to Spend:</strong></div>
@@ -72,7 +72,9 @@
         <div class="col ">
             <%= form_with(model:@company, local:true,class:"justify-content-center form-inline") do |f| %>
                 <div class="form-group mx-sm-3 mb-2">
-                    <%= f.text_field :symbol, label: "Search by Company Symbol:",placeholder:"ex. AAPL",class:"form-control",style:"text-transform:uppercase" %>
+                    <%=f.label :symbol, "Search by Company Symbol:",class:"padding"%>
+                    <%= f.text_field :symbol,placeholder:"ex. AAPL", class:"form-control",style:"text-transform:uppercase" %>
+                    <%= f.hidden_field :page, value: "portfolio" %>
                 </div>
                 <%= f.submit "Submit",class:"btn btn-primary mb-2 "%>
             <% end %>

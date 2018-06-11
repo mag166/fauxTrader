@@ -31,7 +31,7 @@ h1{
 }
 
 .green{
-    color: green;
+    color: rgb(64,163,63);
 }
 
 .header{
@@ -40,6 +40,10 @@ h1{
 
 .topspace{
     margin-top: 80px;
+}
+
+.top{
+    margin-top:60px;
 }
 
 ::placeholder { 
@@ -67,7 +71,34 @@ html {
   }
 
   dl{
-      font-size: 30px;
+      font-size: 25px;
   }
 
- 
+  .col-4{
+      padding:0px;
+  }
+
+  .cardPadding{
+      padding: 0px;
+  }
+
+ .bottom{
+     margin-bottom: 80px;
+ }
+
+ .link{
+     color: white;
+     text-decoration: underline;
+ }
+
+ .link:hover{
+     color:silver;
+ }
+
+ .wrapper{
+     margin-bottom: 80px;
+ }
+
+ .padding{
+     padding-right: 5px;
+ }

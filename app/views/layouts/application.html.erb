@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
 
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -22,16 +23,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div class="navbar-nav mr-auto">
         <% if signed_in? %>
           <%= link_to "My Portfolio", root_path, class: "nav-item nav-link" %>
-          <%= link_to "Companies", root_path, class: "nav-item nav-link" %>
+          <%= link_to "Companies", companies_path, class: "nav-item nav-link" %>
           <%= link_to "All Transactions", root_path, class: "nav-item nav-link" %>
-          <%= link_to 'Sign out', sign_out_path, method: :delete,class: "nav-item nav-link" %>
         <% else %>
           <%= link_to 'Sign in', sign_in_path, class: "nav-item nav-link" %>
           <%= link_to 'Sign Up', sign_up_path, class: "nav-item nav-link" %>
         <% end %>
+      </div>
+
+      <div class="navbar-nav">
+          <%= link_to 'Sign out', sign_out_path, method: :delete,class: "nav-item nav-link my-2 my-lg-0" %>
       </div>
     </div>
   </nav>

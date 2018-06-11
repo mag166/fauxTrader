@@ -7,18 +7,13 @@ class UsersController < ApplicationController
     @change = (((@value/@initialDeposit)*100)-100).round(2)
     @cash = current_user.cash
 
-    @names = []
-    @prices = []
-    @symbols = []
-    @shares = []
+    @quotes = []
     @avg = []
-
+    @shares = []
 
     @companies = current_user.companies
     @companies.each do |company|
-      @symbols.push(company.symbol)
-      @prices.push(IEX::Resources::Price.get(company.symbol))
-      @names.push(IEX::Resources::Company.get(company.symbol).company_name)
+      @quotes.push(IEX::Resources::Quote.get(company.symbol))
       @avg.push(avg_price(company))
       @shares.push(num_shares(company))
     end

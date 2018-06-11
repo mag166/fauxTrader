@@ -1,5 +1,13 @@
 class CompaniesController < ApplicationController
 
+  def index
+    @companies = Company.all.shuffle
+    @quotes = []
+    @companies.each do |company|
+      @quotes.push(IEX::Resources::Quote.get(company.symbol))
+    end
+  end
+
   def create
     symbol = params[:symbol].upcase
     @company = Company.where(symbol: symbol).first
@@ -14,15 +22,25 @@ class CompaniesController < ApplicationController
         @company = Company.new(symbol:symbol)
         if @company.save
           flash[:success] = "Added #{symbol} to Companies"
-          redirect_to @company
+          if params[:page] == "portfolio"
+            redirect_to @company
+          else
+            redirect_to companies_path
+          end
         else
           flash[:error] = "Error adding Company"
         end
       end
     else
-      redirect_to @company
+      if params[:page] == "portfolio"
+        redirect_to @company
+      else
+        redirect_to companies_path
+        flash[:success] = "Company is already on List"
+      end
     end
   end
+  
 
   def show
     @company = Company.find(params[:id])
@@ -30,6 +48,8 @@ class CompaniesController < ApplicationController
     @shares = num_shares(@company)
     @avg = avg_price(@company)
     @price = IEX::Resources::Price.get(@company.symbol)
+
+    @transactions = Transaction.where(user_id:current_user.id, company_id:@company.id)
 
   end
 
