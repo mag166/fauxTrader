@@ -1,6 +1,6 @@
 <div class="container">
     <h1 class=" text-center"><strong>Company Information</strong></h1>
-
+<div class="jumbotron">
     <dl class="row">
         <dt class="col-2">Symbol:</dt><br>
         <dd class="col-10"><%=@company.symbol%></dd>
@@ -26,7 +26,7 @@
         <dt class="col-2">Website:</dt>
         <dd class="col-10"><a href="<%=@companyInfo.website%>"><%=@companyInfo.website%></a></dd>
     </dl>
-    
+</div>
         <div class="card-group topspace text-center mx-auto" style="width: 40rem;">
                 <div class="card card-sharp">
                     <div class="card-header"><strong>Number of Shares:</strong></div>
