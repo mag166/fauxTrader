@@ -113,7 +113,7 @@
         </thead>
         <tbody>
             <%if !@transactions.empty?%>
-                <%@transactions.each do |transaction|%>
+                <%@transactions.reverse.each do |transaction|%>
                     <tr>
                     <th scope="row"><%=transaction.created_at.strftime("%d %b %Y") %></th>
                     <% if transaction.buy == true %>

@@ -34,10 +34,11 @@
           <%= link_to 'Sign Up', sign_up_path, class: "nav-item nav-link" %>
         <% end %>
       </div>
-
-      <div class="navbar-nav">
-          <%= link_to 'Sign out', sign_out_path, method: :delete,class: "nav-item nav-link my-2 my-lg-0" %>
-      </div>
+      <% if signed_in? %>
+        <div class="navbar-nav">
+            <%= link_to 'Sign out', sign_out_path, method: :delete,class: "nav-item nav-link my-2 my-lg-0" %>
+        </div>
+      <%end%>
     </div>
   </nav>
 
