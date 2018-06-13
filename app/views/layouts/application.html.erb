@@ -7,7 +7,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -27,7 +27,8 @@
         <% if signed_in? %>
           <%= link_to "My Portfolio", root_path, class: "nav-item nav-link" %>
           <%= link_to "Companies", companies_path, class: "nav-item nav-link" %>
-          <%= link_to "All Transactions", root_path, class: "nav-item nav-link" %>
+          <%= link_to "All Transactions", transactions_path, class: "nav-item nav-link" %>
+
         <% else %>
           <%= link_to 'Sign in', sign_in_path, class: "nav-item nav-link" %>
           <%= link_to 'Sign Up', sign_up_path, class: "nav-item nav-link" %>

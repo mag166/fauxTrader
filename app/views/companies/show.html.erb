@@ -28,26 +28,27 @@
     </dl>
     
         <div class="card-group topspace text-center mx-auto" style="width: 40rem;">
-                <div class="card">
+                <div class="card card-sharp">
                     <div class="card-header"><strong>Number of Shares:</strong></div>
                     <p class="card-text cashText"><%=@shares%></p>
                 </div>
-                <div class="card">
+                <div class="card card-sharp">
                     <div class="card-header"><strong>Avg. Price Paid:</strong></div>
                     <p class="card-text cashText"><%="$#{@avg}"%></p>
                 </div>
-                <div class="card">
+                <div class="card card-sharp">
                     <div class="card-header"><strong>Current Price:</strong></div>
                     <p class="card-text cashText"><%="$#{@price}"%></p>
                 </div>
         </div>
-
         <div class='wrapper text-center'>
             <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-success btn-lg" style="width: 20rem;" data-toggle="modal" data-target="#buyModal"><i class="fa fa-plus"></i> Buy Stock</button>
-                        <button type="button" class="btn btn-danger btn-lg" style="width: 20rem;" data-toggle="modal" data-target="#sellModal"><i class="fa fa-minus"></i> Sell Stock</button>
+                    <button type="button" class="btn btn-success btn-lg btn-sharp" style="width: 20.04rem;" data-toggle="modal" data-target="#buyModal"><i class="fa fa-plus"></i> Buy Stock</button>
+                    <button type="button" class="btn btn-danger btn-lg btn-sharp" style="width: 20.04rem;" data-toggle="modal" data-target="#sellModal"><i class="fa fa-minus"></i> Sell Stock</button>
             </div>
         </div>
+
+
             
         <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -101,7 +102,7 @@
     <h2 class="text-center">Transaction History</h2>
 
     <div class="row top">
-        <table class="bottom table table-striped table-dark">
+        <table class="bottom table table-striped table-dark rounded-bottom">
         <thead>
             <tr>
             <th scope="col">Date/Time</th>
@@ -114,7 +115,7 @@
             <%if !@transactions.empty?%>
                 <%@transactions.each do |transaction|%>
                     <tr>
-                    <th scope="row"><%=transaction.created_at.to_formatted_s(:short) %></th>
+                    <th scope="row"><%=transaction.created_at.strftime("%d %b %Y") %></th>
                     <% if transaction.buy == true %>
                         <td class="green">Buy</th>
                     <% else %>

@@ -1,2 +1,41 @@
-<h1>Transactions#index</h1>
-<p>Find me in app/views/transactions/index.html.erb</p>
+<div class="container">
+    <h1 class="text-center">All Transactions</h1>
+    <table class="bottom table table-striped table-dark rounded-bottom">
+        <thead>
+            <tr>
+            <th scope="col">Date/Time</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Transaction Type</th>
+            <th scope="col"># of Shares</th>
+            <th scope="col">Price per Share</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%if !@transactions.empty?%>
+                <%@transactions.each do |transaction|%>
+                    <tr>
+                    <th scope="row"><%="#{transaction.created_at.strftime("%d %b %Y")}"%></th>
+                    <th scope="row"><%=link_to "#{transaction.company.symbol}", "/companies/#{transaction.company.id}", class:"link"%></th>
+                    <td><%=IEX::Resources::Company.get(transaction.company.symbol).company_name%></th>
+                    <% if transaction.buy == true %>
+                        <td class="green">Buy</th>
+                    <% else %>
+                        <td class="red">Sell</th>
+                    <%end%>
+
+                    <td><%=transaction.shares%></td>
+                    <td><%=transaction.price%></td>
+                    </tr>
+                <%end%>
+            <%else%>
+                    <tr>
+                    <th scope="row">-</th>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    </tr>
+            <%end%>
+        </tbody>
+        </table>
+</div>

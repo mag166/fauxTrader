@@ -102,3 +102,13 @@ html {
  .padding{
      padding-right: 5px;
  }
+
+ .btn-sharp{
+    border-top-left-radius:0;
+    border-top-right-radius:0;
+ }
+
+ .card-sharp{
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+ }
