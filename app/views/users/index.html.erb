@@ -44,6 +44,7 @@
             </tr>
         </thead>
         <tbody>
+        <%if @quotes.size != 0%>
             <%@quotes.size.times do |index|%>
                 <tr>
                 <th scope="row"><%=link_to "#{@quotes[index].symbol}", "/companies/#{@companies[index].id}", class:"link"%></th>
@@ -65,6 +66,19 @@
                 <td><%="$#{@quotes[index].latest_price}"%></td>
                 </tr>
             <%end%>
+        <%else%>
+            <tr>
+            <th scope="row">-</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            </tr>
+        <%end%>
+
         </tbody>
         </table>
     </div><br><br><br>
